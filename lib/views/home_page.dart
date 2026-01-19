@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
             icone: Icons.person_search,
             titulo: "Ver Clientes",
             cor: Colors.lightBlue,
-            destino: "/home",
+            destino: "/costumers",
           ),
           ButtonBoxGrid(
             icone: Icons.add_shopping_cart,
