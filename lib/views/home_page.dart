@@ -10,7 +10,9 @@ class HomePage extends StatefulWidget {
   }
 }
 
+
 class _HomePageState extends State<HomePage> {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +24,7 @@ class _HomePageState extends State<HomePage> {
             icone: Icons.shopping_cart_outlined,
             titulo: "Ver Produtos",
             cor: Colors.amber,
-            destino: "/home",
+            destino: "/products",
           ),
           ButtonBoxGrid(
             icone: Icons.person_search,

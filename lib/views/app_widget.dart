@@ -1,4 +1,5 @@
 import 'package:crud_flutter/views/home_page.dart';
+import 'package:crud_flutter/views/products_page.dart';
 import 'package:flutter/material.dart';
 
 class AppWidget extends StatelessWidget {
@@ -9,7 +10,10 @@ class AppWidget extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: false),
       initialRoute: '/home',
-      routes: {'/home': (context) => HomePage()},
+      routes: {
+        '/home': (context) => HomePage(),
+        '/products': (context) => ProductsPage(),
+      },
     );
   }
 }
