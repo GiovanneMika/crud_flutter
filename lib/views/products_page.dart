@@ -72,6 +72,12 @@ class _ProductsPageState extends State<ProductsPage> {
           return stateManagement(controller.state.value);
         },
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).pushNamed('/products/new');
+        },
+        child: Icon(Icons.add),
+      ),
     );
   }
 }

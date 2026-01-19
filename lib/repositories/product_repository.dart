@@ -15,4 +15,9 @@ class ProductRepository {
     print(list);
     return list.map((json) => ProductModel.fromJson(json)).toList();
   }
+
+  Future<ProductModel> createProduct(ProductModel product) async {
+    final response = await dio.post(url, data: product.toJson());
+    return ProductModel.fromJson(response.data);
+  }
 }

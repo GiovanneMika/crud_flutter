@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
             icone: Icons.add_shopping_cart,
             titulo: "Novo Produto",
             cor: Colors.orange,
-            destino: "/home",
+            destino: "/products/new",
           ),
           ButtonBoxGrid(
             icone: Icons.person_add,
