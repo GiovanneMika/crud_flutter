@@ -1,0 +1,68 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Smartphone Galaxy S23",
+      "description": "Premium Android smartphone with high-end camera.",
+      "price": 4500,
+      "stock": 15,
+      "isAvailable": true,
+      "category": "Electronics",
+      "imageUrl": "https://example.com/s23.jpg",
+      "tags": [
+        "mobile",
+        "samsung",
+        "android"
+      ],
+      "updatedAt": "2026-01-19T10:00:00Z"
+    },
+    {
+      "id": "2",
+      "name": "Mechanical Keyboard K3",
+      "description": "Wireless low-profile mechanical keyboard.",
+      "price": 550.5,
+      "stock": 8,
+      "isAvailable": true,
+      "category": "Peripherals",
+      "imageUrl": "https://example.com/k3.jpg",
+      "tags": [
+        "keyboard",
+        "wireless",
+        "mechanical"
+      ],
+      "updatedAt": "2026-01-18T14:30:00Z"
+    },
+    {
+      "id": "3",
+      "name": "Noise Cancelling Headphones",
+      "description": "Active noise cancelling with 30h battery life.",
+      "price": 1200,
+      "stock": 0,
+      "isAvailable": false,
+      "category": "Audio",
+      "imageUrl": "https://example.com/headphones.jpg",
+      "tags": [
+        "audio",
+        "bluetooth",
+        "premium"
+      ],
+      "updatedAt": "2026-01-17T09:15:00Z"
+    },
+    {
+      "id": "4",
+      "name": "Coffee Maker 5000",
+      "description": "Automatic espresso machine with milk frother.",
+      "price": 890.9,
+      "stock": 5,
+      "isAvailable": true,
+      "category": "Home",
+      "imageUrl": "https://example.com/coffee.jpg",
+      "tags": [
+        "kitchen",
+        "coffee",
+        "home"
+      ],
+      "updatedAt": "2026-01-19T08:00:00Z"
+    }
+  ]
+}
