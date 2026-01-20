@@ -63,6 +63,114 @@
         "home"
       ],
       "updatedAt": "2026-01-19T08:00:00Z"
+    },
+    {
+      "id": "6ded",
+      "name": "asdfadsfa",
+      "description": "",
+      "price": 0,
+      "stock": 0,
+      "isAvailable": true,
+      "category": "",
+      "imageUrl": "",
+      "tags": [],
+      "updatedAt": ""
+    },
+    {
+      "id": "afd1",
+      "name": "asdfasdf",
+      "description": "",
+      "price": 0,
+      "stock": 0,
+      "isAvailable": true,
+      "category": "",
+      "imageUrl": "",
+      "tags": [],
+      "updatedAt": ""
+    },
+    {
+      "id": "eaf5",
+      "name": "",
+      "description": "",
+      "price": 0,
+      "stock": 0,
+      "isAvailable": true,
+      "category": "",
+      "imageUrl": "",
+      "tags": [],
+      "updatedAt": ""
+    },
+    {
+      "id": "cb28",
+      "name": "asdfasdf",
+      "description": "",
+      "price": 0,
+      "stock": 0,
+      "isAvailable": true,
+      "category": "",
+      "imageUrl": "",
+      "tags": [],
+      "updatedAt": ""
+    },
+    {
+      "id": "af6a",
+      "name": "giovanne",
+      "description": "",
+      "price": 0,
+      "stock": 0,
+      "isAvailable": true,
+      "category": "",
+      "imageUrl": "",
+      "tags": [],
+      "updatedAt": ""
+    },
+    {
+      "id": "2686",
+      "name": "giovanne",
+      "description": "",
+      "price": 0,
+      "stock": 0,
+      "isAvailable": true,
+      "category": "",
+      "imageUrl": "",
+      "tags": [],
+      "updatedAt": ""
+    },
+    {
+      "id": "ace0",
+      "name": "lucas",
+      "description": "",
+      "price": 0,
+      "stock": 0,
+      "isAvailable": true,
+      "category": "",
+      "imageUrl": "",
+      "tags": [],
+      "updatedAt": ""
+    },
+    {
+      "id": "cef8",
+      "name": "lucas123",
+      "description": "",
+      "price": 0,
+      "stock": 0,
+      "isAvailable": true,
+      "category": "",
+      "imageUrl": "",
+      "tags": [],
+      "updatedAt": ""
+    },
+    {
+      "id": "7c42",
+      "name": "lucas321",
+      "description": "",
+      "price": 0,
+      "stock": 0,
+      "isAvailable": true,
+      "category": "",
+      "imageUrl": "",
+      "tags": [],
+      "updatedAt": ""
     }
   ],
   "costumers": [
@@ -78,7 +186,7 @@
         "zipCode": "01234-567"
       },
       "isActive": true,
-      "balance": 1500.50,
+      "balance": 1500.5,
       "loyaltyPoints": 120,
       "lastPurchase": "2026-01-15T16:20:00Z"
     },
@@ -94,7 +202,7 @@
         "zipCode": "22010-000"
       },
       "isActive": true,
-      "balance": 0.0,
+      "balance": 0,
       "loyaltyPoints": 450.3,
       "lastPurchase": "2026-01-18T10:00:00Z"
     },
