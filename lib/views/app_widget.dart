@@ -1,5 +1,6 @@
 import 'package:crud_flutter/views/costumers_page.dart';
 import 'package:crud_flutter/views/home_page.dart';
+import 'package:crud_flutter/views/new_client_page.dart';
 import 'package:crud_flutter/views/new_product_page.dart';
 import 'package:crud_flutter/views/products_page.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,7 @@ class AppWidget extends StatelessWidget {
         '/products': (context) => ProductsPage(),
         '/costumers': (context) => CostumersPage(),
         '/products/new': (context) => NewProductPage(),
+        '/costumers/new': (context) => NewClient(),
       },
     );
   }

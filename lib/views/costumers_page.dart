@@ -72,6 +72,12 @@ class _CostumersPageState extends State<CostumersPage> {
           return stateManagement(controller.state.value);
         },
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).pushNamed('/costumers/new');
+        },
+        child: Icon(Icons.add),
+      ),
     );
   }
 }
