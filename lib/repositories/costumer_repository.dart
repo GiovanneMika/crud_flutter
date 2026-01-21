@@ -20,4 +20,17 @@ class CostumerRepository {
     final response = await dio.post(url, data: costumer.toJson());
     return CostumerModel.fromJson(response.data);
   }
+
+  Future<CostumerModel> updateCostumer(CostumerModel costumer) async {
+    final response = await dio.put(
+      '$url/${costumer.id}',
+      data: costumer.toJson(),
+    );
+    return CostumerModel.fromJson(response.data);
+  }
+
+  Future<dynamic> deleteCostumer(String id) async {
+    final response = await dio.delete('$url/$id');
+    return response;
+  }
 }

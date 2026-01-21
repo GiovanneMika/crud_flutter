@@ -14,7 +14,9 @@ class CostumersController {
   Future start() async {
     state.value = CostumerState.loading;
     try {
-      costumers = await _repository.getCostumers();
+      costumers = await _repository.getCostumers().timeout(
+        Duration(seconds: 5),
+      );
       state.value = CostumerState.success;
     } on Exception catch (e) {
       print(e);
@@ -24,6 +26,14 @@ class CostumersController {
 
   Future<CostumerModel> createCostumer(CostumerModel costumer) async {
     return await _repository.createCostumer(costumer);
+  }
+
+  Future<CostumerModel> updateCostumer(CostumerModel costumer) async {
+    return await _repository.updateCostumer(costumer);
+  }
+
+  Future<dynamic> deleteCostumer(String id) async {
+    return await _repository.deleteCostumer(id);
   }
 }
 

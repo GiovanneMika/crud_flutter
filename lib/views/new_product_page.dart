@@ -14,7 +14,6 @@ class NewProductPage extends StatefulWidget {
 class _NewProductPageState extends State<NewProductPage> {
   final controller = ProductsController();
   final _formKey = GlobalKey<FormState>();
-  final Map<String, dynamic> _formData = {};
 
   final _newProduct = ProductModel(
     name: '',

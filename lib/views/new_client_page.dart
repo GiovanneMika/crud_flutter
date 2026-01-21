@@ -12,7 +12,6 @@ class NewClient extends StatefulWidget {
 class _NewClientState extends State<NewClient> {
   final controller = CostumersController();
   final _formKey = GlobalKey<FormState>();
-  final Map<String, dynamic> _formData = {};
 
   final _newCostumer = CostumerModel(
     fullName: '',
@@ -27,15 +26,26 @@ class _NewClientState extends State<NewClient> {
   void _saveForm() {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-      print(_formData);
-      controller.createCostumer(_newCostumer).then((value) {
-        Navigator.of(context).pushReplacementNamed('/costumers');
-      });
+      if (_newCostumer.id == null) {
+        controller.createCostumer(_newCostumer).then((value) {
+          Navigator.of(context).pushReplacementNamed('/costumers');
+        });
+      } else {
+        controller.updateCostumer(_newCostumer).then((value) {
+          Navigator.of(context).pushReplacementNamed('/costumers');
+        });
+      }
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    CostumerModel? costumer =
+        ModalRoute.of(context)!.settings.arguments as CostumerModel?;
+    if (costumer != null) {
+      _newCostumer.id = costumer.id;
+    }
+
     return Scaffold(
       appBar: AppBar(title: Text('Novo Cliente')),
       body: SingleChildScrollView(
@@ -50,6 +60,7 @@ class _NewClientState extends State<NewClient> {
                       label: "Nome Completo",
                       padding: 12.0,
                       keyboardType: TextInputType.name,
+                      initialValue: costumer?.fullName,
                       onSaved: (value) {
                         _newCostumer.fullName = value;
                         return null;
@@ -65,6 +76,7 @@ class _NewClientState extends State<NewClient> {
                       label: "Email",
                       padding: 12.0,
                       keyboardType: TextInputType.emailAddress,
+                      initialValue: costumer?.email,
                       onSaved: (value) {
                         _newCostumer.email = value;
                         return null;
@@ -80,6 +92,7 @@ class _NewClientState extends State<NewClient> {
                       label: "Número de telefone",
                       padding: 12.0,
                       keyboardType: TextInputType.phone,
+                      initialValue: costumer?.phone,
                       onSaved: (value) {
                         _newCostumer.phone = value;
                         return null;
@@ -91,6 +104,7 @@ class _NewClientState extends State<NewClient> {
                       label: "CEP",
                       padding: 12.0,
                       keyboardType: TextInputType.number,
+                      initialValue: costumer?.address?.zipCode,
                       onSaved: (value) {
                         _newCostumer.address!.zipCode = value;
                         return null;
@@ -106,6 +120,7 @@ class _NewClientState extends State<NewClient> {
                       label: "Endereço",
                       padding: 12.0,
                       keyboardType: TextInputType.text,
+                      initialValue: costumer?.address?.street,
                       onSaved: (value) {
                         _newCostumer.address!.street = value;
                         return null;
@@ -121,6 +136,7 @@ class _NewClientState extends State<NewClient> {
                       label: "Cidade",
                       padding: 12.0,
                       keyboardType: TextInputType.text,
+                      initialValue: costumer?.address?.city,
                       onSaved: (value) {
                         _newCostumer.address!.city = value;
                         return null;
@@ -132,6 +148,7 @@ class _NewClientState extends State<NewClient> {
                       label: "Estado",
                       padding: 12.0,
                       keyboardType: TextInputType.text,
+                      initialValue: costumer?.address?.state,
                       onSaved: (value) {
                         _newCostumer.address!.state = value;
                         return null;

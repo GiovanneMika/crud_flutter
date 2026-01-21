@@ -43,21 +43,6 @@
   ],
   "costumers": [
     {
-      "id": "1",
-      "fullName": "João Silva",
-      "email": "joao.silva@email.com",
-      "phone": "+55 11 98888-7777",
-      "address": {
-        "street": "Rua das Flores, 123",
-        "city": "São Paulo",
-        "state": "SP",
-        "zipCode": "01234-567"
-      },
-      "isActive": true,
-      "balance": 1500.5,
-      "lastPurchase": "2026-01-15T16:20:00Z"
-    },
-    {
       "id": "2",
       "fullName": "Maria Oliveira",
       "email": "maria.oli@outlook.com",
@@ -73,19 +58,19 @@
       "lastPurchase": "2026-01-18T10:00:00Z"
     },
     {
-      "id": "3",
-      "fullName": "Carlos Eduardo",
-      "email": "cadu.dev@gmail.com",
-      "phone": "+55 31 99999-8888",
+      "id": "1",
+      "fullName": "João Silva",
+      "email": "joao.silva@email.com",
+      "phone": "+55 11 98888-7777",
       "address": {
-        "street": "Rua Curitiba, 789",
-        "city": "Belo Horizonte",
-        "state": "MG",
-        "zipCode": "30170-130"
+        "street": "Rua das Flores, 123",
+        "city": "São Paulo",
+        "state": "SP",
+        "zipCode": "01234-567"
       },
-      "isActive": false,
-      "balance": -50.25,
-      "lastPurchase": "2025-12-25T14:00:00Z"
+      "isActive": true,
+      "balance": 0,
+      "lastPurchase": null
     }
   ]
 }
