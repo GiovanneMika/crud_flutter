@@ -25,6 +25,10 @@ class ProductsController {
   Future<ProductModel> createProduct(ProductModel product) async {
     return await _repository.createProduct(product);
   }
+
+  Future<ProductModel> updateProduct(ProductModel product) async {
+    return await _repository.updateProduct(product);
+  }
 }
 
 enum ProductState { initial, loading, success, error }

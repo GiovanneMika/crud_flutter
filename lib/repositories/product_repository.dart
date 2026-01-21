@@ -19,4 +19,12 @@ class ProductRepository {
     final response = await dio.post(url, data: product.toJson());
     return ProductModel.fromJson(response.data);
   }
+
+  Future<ProductModel> updateProduct(ProductModel product) async {
+    final response = await dio.put(
+      '$url/${product.id}',
+      data: product.toJson(),
+    );
+    return ProductModel.fromJson(response.data);
+  }
 }

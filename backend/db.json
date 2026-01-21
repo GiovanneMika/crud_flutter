@@ -4,33 +4,25 @@
       "id": "1",
       "name": "Smartphone Galaxy S23",
       "description": "Premium Android smartphone with high-end camera.",
-      "price": 4500.2,
+      "price": 4500,
       "stock": 15,
       "isAvailable": true,
       "category": "Electronics",
       "imageUrl": "https://example.com/s23.jpg",
-      "tags": [
-        "mobile",
-        "samsung",
-        "android"
-      ],
-      "updatedAt": "2026-01-19T10:00:00Z"
+      "tags": [],
+      "updatedAt": ""
     },
     {
       "id": "2",
-      "name": "Mechanical Keyboard K3",
+      "name": "Mechanical Keyboard K5",
       "description": "Wireless low-profile mechanical keyboard.",
       "price": 550.5,
       "stock": 8,
       "isAvailable": true,
       "category": "Peripherals",
       "imageUrl": "https://example.com/k3.jpg",
-      "tags": [
-        "keyboard",
-        "wireless",
-        "mechanical"
-      ],
-      "updatedAt": "2026-01-18T14:30:00Z"
+      "tags": [],
+      "updatedAt": ""
     },
     {
       "id": "3",
@@ -52,123 +44,35 @@
       "id": "4",
       "name": "Coffee Maker 5000",
       "description": "Automatic espresso machine with milk frother.",
-      "price": 890.9,
+      "price": 890.99,
       "stock": 5,
       "isAvailable": true,
       "category": "Home",
       "imageUrl": "https://example.com/coffee.jpg",
-      "tags": [
-        "kitchen",
-        "coffee",
-        "home"
-      ],
-      "updatedAt": "2026-01-19T08:00:00Z"
-    },
-    {
-      "id": "6ded",
-      "name": "asdfadsfa",
-      "description": "",
-      "price": 0,
-      "stock": 0,
-      "isAvailable": true,
-      "category": "",
-      "imageUrl": "",
       "tags": [],
       "updatedAt": ""
     },
     {
-      "id": "afd1",
-      "name": "asdfasdf",
-      "description": "",
-      "price": 0,
-      "stock": 0,
+      "id": "1",
+      "name": "Smartphone Galaxy S23",
+      "description": "Premium Android smartphone with high-end camera.",
+      "price": 4500.54,
+      "stock": 15,
       "isAvailable": true,
-      "category": "",
-      "imageUrl": "",
+      "category": "Electronics",
+      "imageUrl": "https://example.com/s23.jpg",
       "tags": [],
       "updatedAt": ""
     },
     {
-      "id": "eaf5",
-      "name": "",
-      "description": "",
-      "price": 0,
-      "stock": 0,
+      "id": "1",
+      "name": "Smartphone Galaxy S23",
+      "description": "Premium Android smartphone with high-end camera.",
+      "price": 4500.54,
+      "stock": 15,
       "isAvailable": true,
-      "category": "",
-      "imageUrl": "",
-      "tags": [],
-      "updatedAt": ""
-    },
-    {
-      "id": "cb28",
-      "name": "asdfasdf",
-      "description": "",
-      "price": 0,
-      "stock": 0,
-      "isAvailable": true,
-      "category": "",
-      "imageUrl": "",
-      "tags": [],
-      "updatedAt": ""
-    },
-    {
-      "id": "af6a",
-      "name": "giovanne",
-      "description": "",
-      "price": 0,
-      "stock": 0,
-      "isAvailable": true,
-      "category": "",
-      "imageUrl": "",
-      "tags": [],
-      "updatedAt": ""
-    },
-    {
-      "id": "2686",
-      "name": "giovanne",
-      "description": "",
-      "price": 0,
-      "stock": 0,
-      "isAvailable": true,
-      "category": "",
-      "imageUrl": "",
-      "tags": [],
-      "updatedAt": ""
-    },
-    {
-      "id": "ace0",
-      "name": "lucas",
-      "description": "",
-      "price": 0,
-      "stock": 0,
-      "isAvailable": true,
-      "category": "",
-      "imageUrl": "",
-      "tags": [],
-      "updatedAt": ""
-    },
-    {
-      "id": "cef8",
-      "name": "lucas123",
-      "description": "",
-      "price": 0,
-      "stock": 0,
-      "isAvailable": true,
-      "category": "",
-      "imageUrl": "",
-      "tags": [],
-      "updatedAt": ""
-    },
-    {
-      "id": "7c42",
-      "name": "lucas321",
-      "description": "",
-      "price": 0,
-      "stock": 0,
-      "isAvailable": true,
-      "category": "",
-      "imageUrl": "",
+      "category": "Electronics",
+      "imageUrl": "https://example.com/s23.jpg",
       "tags": [],
       "updatedAt": ""
     }
@@ -219,6 +123,5 @@
       "balance": -50.25,
       "lastPurchase": "2025-12-25T14:00:00Z"
     }
-    
   ]
 }

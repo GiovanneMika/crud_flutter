@@ -14,7 +14,43 @@ class _ProductsPageState extends State<ProductsPage> {
       itemCount: controller.products.length,
       itemBuilder: (context, index) {
         var product = controller.products[index];
-        return ListTile(title: Text('${product.name}'));
+        return ListTile(
+          title: Text(
+            '${product.name} - R\$${product.price!.toStringAsFixed(2).replaceAll('.', ',')}',
+          ),
+          subtitle: Text('${product.description}'),
+          trailing: SizedBox(
+            width: 60,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                IconButton(
+                  icon: Icon(Icons.edit, color: Colors.blue),
+                  padding: EdgeInsets.all(0),
+                  constraints: BoxConstraints(maxHeight: 30, maxWidth: 30),
+                  onPressed: () {
+                    Navigator.of(context)
+                        .pushNamed('/products/new', arguments: product)
+                        .then((_) => controller.start());
+                  },
+                  splashRadius: 1,
+                ),
+                SizedBox(width: 8),
+                IconButton(
+                  icon: Icon(Icons.delete, color: Colors.red),
+                  padding: EdgeInsets.all(0),
+                  constraints: BoxConstraints(maxHeight: 30, maxWidth: 30),
+                  splashRadius: 1,
+                  onPressed: () {
+                    // controller.deleteProduct(product.id!).then((value) {
+                    //   controller.start();
+                    // });
+                  },
+                ),
+              ],
+            ),
+          ),
+        );
       },
     );
   }

@@ -5,12 +5,14 @@ class InputForm extends StatelessWidget {
   final TextInputType keyboardType;
   final double? padding;
   final String? Function(String?)? onSaved;
+  final String? initialValue;
   const InputForm({
     super.key,
     required this.label,
     this.keyboardType = TextInputType.text,
     this.padding = 12.0,
     this.onSaved,
+    this.initialValue,
   });
 
   @override
@@ -24,6 +26,7 @@ class InputForm extends StatelessWidget {
           border: OutlineInputBorder(),
         ),
         onSaved: onSaved,
+        initialValue: initialValue,
       ),
     );
   }
