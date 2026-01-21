@@ -29,6 +29,10 @@ class ProductsController {
   Future<ProductModel> updateProduct(ProductModel product) async {
     return await _repository.updateProduct(product);
   }
+
+  Future<dynamic> deleteProduct(String id) async {
+    return await _repository.deleteProduct(id);
+  }
 }
 
 enum ProductState { initial, loading, success, error }

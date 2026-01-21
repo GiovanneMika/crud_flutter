@@ -45,10 +45,10 @@ class _NewProductPageState extends State<NewProductPage> {
 
   @override
   Widget build(BuildContext context) {
-    ProductModel? _product =
+    ProductModel? product =
         ModalRoute.of(context)!.settings.arguments as ProductModel?;
-    if (_product != null) {
-      _newProduct.id = _product.id;
+    if (product != null) {
+      _newProduct.id = product.id;
     }
     return Scaffold(
       appBar: AppBar(title: Text('Novo Produto')),
@@ -64,7 +64,7 @@ class _NewProductPageState extends State<NewProductPage> {
                       label: "Nome do Produto",
                       padding: 12.0,
                       keyboardType: TextInputType.text,
-                      initialValue: _product?.name,
+                      initialValue: product?.name,
                       onSaved: (value) {
                         _newProduct.name = value;
                         return null;
@@ -76,7 +76,7 @@ class _NewProductPageState extends State<NewProductPage> {
                       label: "Preço do Produto",
                       padding: 12.0,
                       keyboardType: TextInputType.number,
-                      initialValue: _product?.price.toString(),
+                      initialValue: product?.price.toString(),
                       onSaved: (value) {
                         _newProduct.price =
                             double.tryParse(value ?? '0') ?? 0.0;
@@ -93,7 +93,7 @@ class _NewProductPageState extends State<NewProductPage> {
                       label: "Categoria do Produto",
                       padding: 12.0,
                       keyboardType: TextInputType.text,
-                      initialValue: _product?.category,
+                      initialValue: product?.category,
                       onSaved: (value) {
                         _newProduct.category = value;
                         return null;
@@ -105,7 +105,7 @@ class _NewProductPageState extends State<NewProductPage> {
                       label: "Quantidade em Estoque",
                       padding: 12.0,
                       keyboardType: TextInputType.number,
-                      initialValue: _product?.stock.toString(),
+                      initialValue: product?.stock.toString(),
                       onSaved: (value) {
                         _newProduct.stock = int.tryParse(value ?? '0') ?? 0;
                         return null;
@@ -121,7 +121,7 @@ class _NewProductPageState extends State<NewProductPage> {
                       label: "Descrição do Produto",
                       padding: 12.0,
                       keyboardType: TextInputType.text,
-                      initialValue: _product?.description,
+                      initialValue: product?.description,
                       onSaved: (value) {
                         _newProduct.description = value;
                         return null;
@@ -137,7 +137,7 @@ class _NewProductPageState extends State<NewProductPage> {
                       label: "Imagem do Produto(URL)",
                       padding: 12.0,
                       keyboardType: TextInputType.url,
-                      initialValue: _product?.imageUrl,
+                      initialValue: product?.imageUrl,
                       onSaved: (value) {
                         _newProduct.imageUrl = value;
                         return null;

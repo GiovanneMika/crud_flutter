@@ -27,4 +27,9 @@ class ProductRepository {
     );
     return ProductModel.fromJson(response.data);
   }
+
+  Future<dynamic> deleteProduct(String id) async {
+    final response = await dio.delete('$url/${id}');
+    return response;
+  }
 }

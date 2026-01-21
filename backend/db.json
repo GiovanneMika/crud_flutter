@@ -1,18 +1,6 @@
 {
   "products": [
     {
-      "id": "1",
-      "name": "Smartphone Galaxy S23",
-      "description": "Premium Android smartphone with high-end camera.",
-      "price": 4500,
-      "stock": 15,
-      "isAvailable": true,
-      "category": "Electronics",
-      "imageUrl": "https://example.com/s23.jpg",
-      "tags": [],
-      "updatedAt": ""
-    },
-    {
       "id": "2",
       "name": "Mechanical Keyboard K5",
       "description": "Wireless low-profile mechanical keyboard.",
@@ -49,30 +37,6 @@
       "isAvailable": true,
       "category": "Home",
       "imageUrl": "https://example.com/coffee.jpg",
-      "tags": [],
-      "updatedAt": ""
-    },
-    {
-      "id": "1",
-      "name": "Smartphone Galaxy S23",
-      "description": "Premium Android smartphone with high-end camera.",
-      "price": 4500.54,
-      "stock": 15,
-      "isAvailable": true,
-      "category": "Electronics",
-      "imageUrl": "https://example.com/s23.jpg",
-      "tags": [],
-      "updatedAt": ""
-    },
-    {
-      "id": "1",
-      "name": "Smartphone Galaxy S23",
-      "description": "Premium Android smartphone with high-end camera.",
-      "price": 4500.54,
-      "stock": 15,
-      "isAvailable": true,
-      "category": "Electronics",
-      "imageUrl": "https://example.com/s23.jpg",
       "tags": [],
       "updatedAt": ""
     }
