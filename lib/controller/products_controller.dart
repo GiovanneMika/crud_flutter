@@ -14,7 +14,7 @@ class ProductsController {
   Future start() async {
     state.value = ProductState.loading;
     try {
-      products = await _repository.getProducts();
+      products = await _repository.getProducts().timeout(Duration(seconds: 5));
       state.value = ProductState.success;
     } on Exception catch (e) {
       print(e);

@@ -72,16 +72,24 @@ class _ProductsPageState extends State<ProductsPage> {
           return stateManagement(controller.state.value);
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Navigator.of(
-          //   context,
-          // ).pushNamed('/products/new').then((_) => controller.start()); 
-          Navigator.of(
-            context,
-          ).pushNamed('/products/new'); 
+      floatingActionButton: AnimatedBuilder(
+        animation: controller.state,
+        builder: (context, child) {
+          if (controller.state.value == ProductState.success) {
+            return FloatingActionButton(
+              onPressed: () {
+                // Navigator.of(
+                //   context,
+                // ).pushNamed('/products/new').then((_) => controller.start());
+                if (controller.state.value == ProductState.success) {
+                  Navigator.of(context).pushNamed('/products/new');
+                }
+              },
+              child: Icon(Icons.add),
+            );
+          }
+          return const SizedBox.shrink();
         },
-        child: Icon(Icons.add),
       ),
     );
   }

@@ -12,7 +12,6 @@ class ProductRepository {
   Future<List<ProductModel>> getProducts() async {
     final response = await dio.get(url);
     final list = response.data as List;
-    print(list);
     return list.map((json) => ProductModel.fromJson(json)).toList();
   }
 
