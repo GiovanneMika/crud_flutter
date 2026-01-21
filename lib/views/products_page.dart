@@ -148,17 +148,17 @@ Future<void> _modalExclusao(
         ),
         actions: <Widget>[
           TextButton(
-            child: const Text('Cancelar'),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-          TextButton(
             child: const Text('Excluir', style: TextStyle(color: Colors.red)),
             onPressed: () {
               controller.deleteProduct(product.id!).then((value) {
                 controller.start();
               });
+              Navigator.of(context).pop();
+            },
+          ),
+          TextButton(
+            child: const Text('Cancelar'),
+            onPressed: () {
               Navigator.of(context).pop();
             },
           ),

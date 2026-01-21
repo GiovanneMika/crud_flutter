@@ -15,6 +15,44 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Home Page')),
+      drawer: Drawer(
+        child: Column(
+          children: [
+            UserAccountsDrawerHeader(
+              currentAccountPicture: ClipRRect(
+                borderRadius: BorderRadius.circular(40),
+                child: Image.network(
+                  'https://avatars.githubusercontent.com/u/69139838?v=4',
+                ),
+              ),
+              accountName: Text("Giovanne Mika"),
+              accountEmail: Text("admin@email.com"),
+            ),
+            ListTile(
+              title: Text("Produtos"),
+              subtitle: Text("Tela de Produtos"),
+              leading: Padding(
+                padding: const EdgeInsets.only(top: 5),
+                child: Icon(Icons.shopping_cart_outlined, size: 30),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, '/products');
+              },
+            ),
+            ListTile(
+              title: Text("Clientes"),
+              subtitle: Text("Tela de Clientes"),
+              leading: Padding(
+                padding: const EdgeInsets.only(top: 5),
+                child: Icon(Icons.people_alt, size: 30),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, '/costumers');
+              },
+            ),
+          ],
+        ),
+      ),
       body: GridView.count(
         crossAxisCount: 2,
         children: [
