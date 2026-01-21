@@ -10,9 +10,7 @@ class HomePage extends StatefulWidget {
   }
 }
 
-
 class _HomePageState extends State<HomePage> {
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +40,7 @@ class _HomePageState extends State<HomePage> {
             icone: Icons.person_add,
             titulo: "Novo Cliente",
             cor: Colors.blue,
-            destino: "/home",
+            destino: "/costumers/new",
           ),
         ],
       ),

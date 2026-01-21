@@ -21,6 +21,10 @@ class CostumersController {
       state.value = CostumerState.error;
     }
   }
+
+  Future<CostumerModel> createCostumer(CostumerModel costumer) async {
+    return await _repository.createCostumer(costumer);
+  }
 }
 
 enum CostumerState { initial, loading, success, error }

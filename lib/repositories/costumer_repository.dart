@@ -15,4 +15,9 @@ class CostumerRepository {
     print(list);
     return list.map((json) => CostumerModel.fromJson(json)).toList();
   }
+
+  Future<CostumerModel> createCostumer(CostumerModel costumer) async {
+    final response = await dio.post(url, data: costumer.toJson());
+    return CostumerModel.fromJson(response.data);
+  }
 }
