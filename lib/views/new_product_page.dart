@@ -1,8 +1,10 @@
+import 'package:brasil_fields/brasil_fields.dart';
 import 'package:crud_flutter/components/button_form.dart';
 import 'package:crud_flutter/components/input_form.dart';
 import 'package:crud_flutter/controller/products_controller.dart';
 import 'package:crud_flutter/models/product_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class NewProductPage extends StatefulWidget {
   const NewProductPage({super.key});
@@ -90,6 +92,10 @@ class _NewProductPageState extends State<NewProductPage> {
                         }
                         return null;
                       },
+                      inputFormatters: [
+                        FilteringTextInputFormatter.digitsOnly,
+                        CentavosInputFormatter(),
+                      ],
                       onSaved: (value) {
                         _newProduct.price =
                             double.tryParse(value ?? '0') ?? 0.0;
