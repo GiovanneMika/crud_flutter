@@ -18,6 +18,17 @@ class _ProductsPageState extends State<ProductsPage> {
         itemBuilder: (context, index) {
           var product = controller.products[index];
           return ListTile(
+            leading: Image.network(
+              product.imageUrl ??
+                  'https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png',
+              width: 50,
+              height: 50,
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) => Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: Icon(Icons.image_not_supported, size: 40),
+              ),
+            ),
             title: Text(
               '${product.name} - R\$${product.price!.toStringAsFixed(2).replaceAll('.', ',')}',
             ),
@@ -33,17 +44,20 @@ class _ProductsPageState extends State<ProductsPage> {
                     constraints: BoxConstraints(maxHeight: 30, maxWidth: 30),
                     onPressed: () {
                       Navigator.of(context)
-                          .pushNamed('/products/new', arguments: product)
+                          .pushReplacementNamed(
+                            '/products/new',
+                            arguments: product,
+                          )
                           .then((_) => controller.start());
                     },
-                    splashRadius: 1,
+                    splashRadius: 20,
                   ),
                   SizedBox(width: 8),
                   IconButton(
                     icon: Icon(Icons.delete, color: Colors.red),
                     padding: EdgeInsets.all(0),
                     constraints: BoxConstraints(maxHeight: 30, maxWidth: 30),
-                    splashRadius: 1,
+                    splashRadius: 20,
                     onPressed: () {
                       _modalExclusao(context, product, controller);
                     },
@@ -120,7 +134,9 @@ class _ProductsPageState extends State<ProductsPage> {
                 //   context,
                 // ).pushNamed('/products/new').then((_) => controller.start());
                 if (controller.state.value == ProductState.success) {
-                  Navigator.of(context).pushNamed('/products/new');
+                  Navigator.of(
+                    context,
+                  ).pushReplacementNamed('/products/new');
                 }
               },
               child: Icon(Icons.add),
