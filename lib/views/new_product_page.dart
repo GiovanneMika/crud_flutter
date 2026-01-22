@@ -64,6 +64,12 @@ class _NewProductPageState extends State<NewProductPage> {
                       padding: 12.0,
                       keyboardType: TextInputType.text,
                       initialValue: product?.name,
+                      validator: (value) {
+                        if (value == null || value.isEmpty)
+                          return "Informe o nome";
+                        if (value.length < 3) return "Mínimo 3 caracteres";
+                        return null;
+                      },
                       onSaved: (value) {
                         _newProduct.name = value;
                         return null;
@@ -76,6 +82,13 @@ class _NewProductPageState extends State<NewProductPage> {
                       padding: 12.0,
                       keyboardType: TextInputType.number,
                       initialValue: product?.price.toString(),
+                      validator: (value) {
+                        final price = double.tryParse(value ?? '');
+                        if (price == null || price <= 0) {
+                          return "Preço inválido";
+                        }
+                        return null;
+                      },
                       onSaved: (value) {
                         _newProduct.price =
                             double.tryParse(value ?? '0') ?? 0.0;
@@ -93,6 +106,12 @@ class _NewProductPageState extends State<NewProductPage> {
                       padding: 12.0,
                       keyboardType: TextInputType.text,
                       initialValue: product?.category,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Informe a categoria";
+                        }
+                        return null;
+                      },
                       onSaved: (value) {
                         _newProduct.category = value;
                         return null;
@@ -105,6 +124,12 @@ class _NewProductPageState extends State<NewProductPage> {
                       padding: 12.0,
                       keyboardType: TextInputType.number,
                       initialValue: product?.stock.toString(),
+                      validator: (value) {
+                        if (int.tryParse(value ?? '') == null) {
+                          return "Número inválido";
+                        }
+                        return null;
+                      },
                       onSaved: (value) {
                         _newProduct.stock = int.tryParse(value ?? '0') ?? 0;
                         return null;
@@ -121,6 +146,12 @@ class _NewProductPageState extends State<NewProductPage> {
                       padding: 12.0,
                       keyboardType: TextInputType.text,
                       initialValue: product?.description,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Informe a descrição";
+                        }
+                        return null;
+                      },
                       onSaved: (value) {
                         _newProduct.description = value;
                         return null;
@@ -137,6 +168,12 @@ class _NewProductPageState extends State<NewProductPage> {
                       padding: 12.0,
                       keyboardType: TextInputType.url,
                       initialValue: product?.imageUrl,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Informe a URL da imagem";
+                        }
+                        return null;
+                      },
                       onSaved: (value) {
                         _newProduct.imageUrl = value;
                         return null;
@@ -162,7 +199,9 @@ class _NewProductPageState extends State<NewProductPage> {
                         label: "Cancelar",
                         cor: Colors.red,
                         onPressed: () {
-                          Navigator.of(context).pop();
+                          Navigator.of(
+                            context,
+                          ).pushReplacementNamed('/products');
                         },
                       ),
                     ),

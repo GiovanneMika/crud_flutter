@@ -6,6 +6,7 @@ class InputForm extends StatelessWidget {
   final double? padding;
   final String? Function(String?)? onSaved;
   final String? initialValue;
+  final String? Function(String?)? validator;
   const InputForm({
     super.key,
     required this.label,
@@ -13,6 +14,7 @@ class InputForm extends StatelessWidget {
     this.padding = 12.0,
     this.onSaved,
     this.initialValue,
+    this.validator,
   });
 
   @override
@@ -27,6 +29,7 @@ class InputForm extends StatelessWidget {
         ),
         onSaved: onSaved,
         initialValue: initialValue,
+        validator: validator,
       ),
     );
   }
