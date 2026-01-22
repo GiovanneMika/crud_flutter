@@ -29,7 +29,7 @@ class ProductRepository {
   }
 
   Future<dynamic> deleteProduct(String id) async {
-    final response = await dio.delete('$url/${id}');
+    final response = await dio.delete('$url/$id');
     return response;
   }
 }

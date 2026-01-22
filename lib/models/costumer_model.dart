@@ -25,7 +25,7 @@ class CostumerModel {
     email = json['email'];
     phone = json['phone'];
     address = json['address'] != null
-        ? new Address.fromJson(json['address'])
+        ? Address.fromJson(json['address'])
         : null;
     isActive = json['isActive'];
     balance = (json['balance'] as num?)?.toDouble();
@@ -33,17 +33,17 @@ class CostumerModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['fullName'] = this.fullName;
-    data['email'] = this.email;
-    data['phone'] = this.phone;
-    if (this.address != null) {
-      data['address'] = this.address!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['fullName'] = fullName;
+    data['email'] = email;
+    data['phone'] = phone;
+    if (address != null) {
+      data['address'] = address!.toJson();
     }
-    data['isActive'] = this.isActive;
-    data['balance'] = this.balance;
-    data['lastPurchase'] = this.lastPurchase;
+    data['isActive'] = isActive;
+    data['balance'] = balance;
+    data['lastPurchase'] = lastPurchase;
     return data;
   }
 }
@@ -64,11 +64,11 @@ class Address {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['street'] = this.street;
-    data['city'] = this.city;
-    data['state'] = this.state;
-    data['zipCode'] = this.zipCode;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['street'] = street;
+    data['city'] = city;
+    data['state'] = state;
+    data['zipCode'] = zipCode;
     return data;
   }
 }

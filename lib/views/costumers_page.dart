@@ -3,6 +3,8 @@ import 'package:crud_flutter/models/costumer_model.dart';
 import 'package:flutter/material.dart';
 
 class CostumersPage extends StatefulWidget {
+  const CostumersPage({super.key});
+
   @override
   State<StatefulWidget> createState() => _CostumersPageState();
 }
@@ -10,7 +12,7 @@ class CostumersPage extends StatefulWidget {
 class _CostumersPageState extends State<CostumersPage> {
   final controller = CostumersController();
 
-  _success() {
+  Padding _success() {
     return Padding(
       padding: const EdgeInsets.only(top: 12),
       child: ListView.builder(
@@ -34,14 +36,14 @@ class _CostumersPageState extends State<CostumersPage> {
                           .pushNamed('/costumers/new', arguments: costumer)
                           .then((_) => controller.start());
                     },
-                    splashRadius: 1,
+                    splashRadius: 20,
                   ),
                   SizedBox(width: 8),
                   IconButton(
                     icon: Icon(Icons.delete, color: Colors.red),
                     padding: EdgeInsets.all(0),
                     constraints: BoxConstraints(maxHeight: 30, maxWidth: 30),
-                    splashRadius: 1,
+                    splashRadius: 20,
                     onPressed: () {
                       _modalExclusao(context, costumer, controller);
                     },
@@ -55,7 +57,7 @@ class _CostumersPageState extends State<CostumersPage> {
     );
   }
 
-  _error() {
+  Center _error() {
     return Center(
       child: ElevatedButton(
         onPressed: () {
@@ -67,15 +69,15 @@ class _CostumersPageState extends State<CostumersPage> {
     );
   }
 
-  _loading() {
+  Center _loading() {
     return Center(child: CircularProgressIndicator(color: Colors.grey));
   }
 
-  _initial() {
+  Container _initial() {
     return Container();
   }
 
-  stateManagement(CostumerState state) {
+  Widget stateManagement(CostumerState state) {
     switch (state) {
       case CostumerState.initial:
         return _initial();
@@ -93,7 +95,6 @@ class _CostumersPageState extends State<CostumersPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     controller.start();
   }

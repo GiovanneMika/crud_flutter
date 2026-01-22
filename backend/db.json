@@ -2,13 +2,13 @@
   "products": [
     {
       "id": "2",
-      "name": "Mechanical Keyboard K5",
+      "name": "Mechanical 23 Keyboard 123 K5",
       "description": "Wireless low-profile mechanical keyboard.",
       "price": 550.5,
       "stock": 8,
       "isAvailable": true,
       "category": "Peripherals",
-      "imageUrl": "https://example.com/k3.jpg",
+      "imageUrl": "https://keychronbrasil.com.br/cdn/shop/files/Keychron-K4-Max-QMK-Wireless-Custom-Mechanical-Keyboard-96percent-Layout-Fully-Assembled-for-Mac-Windows-Linux-Keychron-Super-Red_39a772bf-89e6-48cd-9518-116ed65e2030.jpg?v=1743104609&width=1080",
       "tags": [],
       "updatedAt": ""
     },
@@ -18,15 +18,11 @@
       "description": "Active noise cancelling with 30h battery life.",
       "price": 1200.3,
       "stock": 0,
-      "isAvailable": false,
+      "isAvailable": true,
       "category": "Audio",
-      "imageUrl": "https://example.com/headphones.jpg",
-      "tags": [
-        "audio",
-        "bluetooth",
-        "premium"
-      ],
-      "updatedAt": "2026-01-17T09:15:00Z"
+      "imageUrl": "https://m.media-amazon.com/images/I/51f7KKP25PL._AC_UF894,1000_QL80_.jpg",
+      "tags": [],
+      "updatedAt": ""
     },
     {
       "id": "4",
@@ -36,7 +32,31 @@
       "stock": 5,
       "isAvailable": true,
       "category": "Home",
-      "imageUrl": "https://example.com/coffee.jpg",
+      "imageUrl": "https://images.philips.com/is/image/philipsconsumer/3c43064d0ee54ec6bc0aad28015362fb?$pnglarge$&wid=1250",
+      "tags": [],
+      "updatedAt": ""
+    },
+    {
+      "id": "71b9",
+      "name": "Max Steel",
+      "description": "Boneco do Max Steel ",
+      "price": 16,
+      "stock": 15,
+      "isAvailable": true,
+      "category": "Brinquedo",
+      "imageUrl": "https://cdn.awsli.com.br/2500x2500/753/753530/produto/364648249/1000295555-zonpi30u77.jpg",
+      "tags": [],
+      "updatedAt": ""
+    },
+    {
+      "id": "bd47",
+      "name": "dcxczzvx",
+      "description": "asdfsadf",
+      "price": 12,
+      "stock": 123,
+      "isAvailable": true,
+      "category": "asfdasdf",
+      "imageUrl": "dsffsafasdf",
       "tags": [],
       "updatedAt": ""
     }
@@ -55,7 +75,7 @@
       },
       "isActive": true,
       "balance": 0,
-      "lastPurchase": "2026-01-18T10:00:00Z"
+      "lastPurchase": null
     },
     {
       "id": "1",

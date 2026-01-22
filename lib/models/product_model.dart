@@ -32,24 +32,24 @@ class ProductModel {
     isAvailable = json['isAvailable'];
     category = json['category'];
     imageUrl = json['imageUrl'];
-    tags = json['tags'].cast<String>();
+    tags = (json['tags'] as List<dynamic>?)?.cast<String>();
     updatedAt = json['updatedAt'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.id != null) {
-      data['id'] = this.id;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (id != null) {
+      data['id'] = id;
     }
-    data['name'] = this.name;
-    data['description'] = this.description;
-    data['price'] = this.price;
-    data['stock'] = this.stock;
-    data['isAvailable'] = this.isAvailable;
-    data['category'] = this.category;
-    data['imageUrl'] = this.imageUrl;
-    data['tags'] = this.tags;
-    data['updatedAt'] = this.updatedAt;
+    data['name'] = name;
+    data['description'] = description;
+    data['price'] = price;
+    data['stock'] = stock;
+    data['isAvailable'] = isAvailable;
+    data['category'] = category;
+    data['imageUrl'] = imageUrl;
+    data['tags'] = tags;
+    data['updatedAt'] = updatedAt;
     return data;
   }
 }

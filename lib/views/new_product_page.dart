@@ -32,11 +32,11 @@ class _NewProductPageState extends State<NewProductPage> {
       _formKey.currentState!.save();
       if (_newProduct.id == null) {
         controller.createProduct(_newProduct).then((value) {
-          Navigator.of(context).pushReplacementNamed('/products');
+          if (mounted) Navigator.of(context).pushReplacementNamed('/products');
         });
       } else {
         controller.updateProduct(_newProduct).then((value) {
-          Navigator.of(context).pushReplacementNamed('/products');
+          if (mounted) Navigator.of(context).pushReplacementNamed('/products');
         });
       }
     }
@@ -65,8 +65,9 @@ class _NewProductPageState extends State<NewProductPage> {
                       keyboardType: TextInputType.text,
                       initialValue: product?.name,
                       validator: (value) {
-                        if (value == null || value.isEmpty)
+                        if (value == null || value.isEmpty) {
                           return "Informe o nome";
+                        }
                         if (value.length < 3) return "Mínimo 3 caracteres";
                         return null;
                       },

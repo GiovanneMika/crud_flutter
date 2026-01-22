@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:crud_flutter/models/costumer_model.dart';
 import 'package:dio/dio.dart';
 

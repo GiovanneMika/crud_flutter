@@ -5,6 +5,8 @@ import 'package:crud_flutter/models/costumer_model.dart';
 import 'package:flutter/material.dart';
 
 class NewClient extends StatefulWidget {
+  const NewClient({super.key});
+
   @override
   State<NewClient> createState() => _NewClientState();
 }
@@ -28,11 +30,11 @@ class _NewClientState extends State<NewClient> {
       _formKey.currentState!.save();
       if (_newCostumer.id == null) {
         controller.createCostumer(_newCostumer).then((value) {
-          Navigator.of(context).pushReplacementNamed('/costumers');
+          if (mounted) Navigator.of(context).pushReplacementNamed('/costumers');
         });
       } else {
         controller.updateCostumer(_newCostumer).then((value) {
-          Navigator.of(context).pushReplacementNamed('/costumers');
+          if (mounted) Navigator.of(context).pushReplacementNamed('/costumers');
         });
       }
     }

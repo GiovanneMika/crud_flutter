@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:crud_flutter/models/product_model.dart';
 import 'package:crud_flutter/repositories/product_repository.dart';
 import 'package:flutter/widgets.dart';

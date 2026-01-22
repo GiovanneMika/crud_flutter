@@ -3,6 +3,8 @@ import 'package:crud_flutter/models/product_model.dart';
 import 'package:flutter/material.dart';
 
 class ProductsPage extends StatefulWidget {
+  const ProductsPage({super.key});
+
   @override
   State<StatefulWidget> createState() => _ProductsPageState();
 }
@@ -10,7 +12,7 @@ class ProductsPage extends StatefulWidget {
 class _ProductsPageState extends State<ProductsPage> {
   final controller = ProductsController();
 
-  _success() {
+  Padding _success() {
     return Padding(
       padding: const EdgeInsets.only(top: 12),
       child: ListView.builder(
@@ -71,7 +73,7 @@ class _ProductsPageState extends State<ProductsPage> {
     );
   }
 
-  _error() {
+  Center _error() {
     return Center(
       child: ElevatedButton(
         onPressed: () {
@@ -83,15 +85,15 @@ class _ProductsPageState extends State<ProductsPage> {
     );
   }
 
-  _loading() {
+  Center _loading() {
     return Center(child: CircularProgressIndicator(color: Colors.grey));
   }
 
-  _initial() {
+  Container _initial() {
     return Container();
   }
 
-  stateManagement(ProductState state) {
+  Widget stateManagement(ProductState state) {
     switch (state) {
       case ProductState.initial:
         return _initial();
@@ -109,7 +111,6 @@ class _ProductsPageState extends State<ProductsPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     controller.start();
   }
@@ -134,9 +135,7 @@ class _ProductsPageState extends State<ProductsPage> {
                 //   context,
                 // ).pushNamed('/products/new').then((_) => controller.start());
                 if (controller.state.value == ProductState.success) {
-                  Navigator.of(
-                    context,
-                  ).pushReplacementNamed('/products/new');
+                  Navigator.of(context).pushReplacementNamed('/products/new');
                 }
               },
               child: Icon(Icons.add),

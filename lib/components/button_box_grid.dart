@@ -7,6 +7,7 @@ class ButtonBoxGrid extends StatelessWidget {
   final Color? cor;
 
   const ButtonBoxGrid({
+    super.key,
     required this.icone,
     required this.titulo,
     this.cor = Colors.cyan,
