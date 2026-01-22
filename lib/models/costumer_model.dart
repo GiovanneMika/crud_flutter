@@ -34,7 +34,9 @@ class CostumerModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
+    if (id != null) {
+      data['id'] = id;
+    }
     data['fullName'] = fullName;
     data['email'] = email;
     data['phone'] = phone;

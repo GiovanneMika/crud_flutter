@@ -91,6 +91,21 @@
       "isActive": true,
       "balance": 0,
       "lastPurchase": null
+    },
+    {
+      "id": "7774",
+      "fullName": "Giovanni Mika",
+      "email": "adsfasdfa@gmiail.com",
+      "phone": "(32) 3232-3232",
+      "address": {
+        "street": "asdfasd",
+        "city": "fdasa",
+        "state": "afasdf",
+        "zipCode": "22222-222"
+      },
+      "isActive": true,
+      "balance": 0,
+      "lastPurchase": null
     }
   ]
 }

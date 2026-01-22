@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class InputForm extends StatelessWidget {
   final String label;
@@ -7,6 +8,7 @@ class InputForm extends StatelessWidget {
   final String? Function(String?)? onSaved;
   final String? initialValue;
   final String? Function(String?)? validator;
+  final List<TextInputFormatter>? inputFormatters;
   const InputForm({
     super.key,
     required this.label,
@@ -15,6 +17,7 @@ class InputForm extends StatelessWidget {
     this.onSaved,
     this.initialValue,
     this.validator,
+    this.inputFormatters,
   });
 
   @override
@@ -30,6 +33,7 @@ class InputForm extends StatelessWidget {
         onSaved: onSaved,
         initialValue: initialValue,
         validator: validator,
+        inputFormatters: inputFormatters
       ),
     );
   }

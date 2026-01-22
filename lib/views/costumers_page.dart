@@ -33,7 +33,10 @@ class _CostumersPageState extends State<CostumersPage> {
                     constraints: BoxConstraints(maxHeight: 30, maxWidth: 30),
                     onPressed: () {
                       Navigator.of(context)
-                          .pushNamed('/costumers/new', arguments: costumer)
+                          .pushReplacementNamed(
+                            '/costumers/new',
+                            arguments: costumer,
+                          )
                           .then((_) => controller.start());
                     },
                     splashRadius: 20,
