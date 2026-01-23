@@ -206,9 +206,7 @@ class _NewProductPageState extends State<NewProductPage> {
                         label: "Cancelar",
                         cor: Colors.red,
                         onPressed: () {
-                          Navigator.of(
-                            context,
-                          ).pushReplacementNamed('/products');
+                          Navigator.of(context).pop();
                         },
                       ),
                     ),

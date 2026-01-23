@@ -1,17 +1,22 @@
+import 'package:crud_flutter/controller/test_connection_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class ButtonBoxGrid extends StatelessWidget {
+  final testController = TestConnectionController();
   final IconData icone;
   final String titulo;
   final String destino;
   final Color? cor;
+  final bool? hasTestConnection;
 
-  const ButtonBoxGrid({
+  ButtonBoxGrid({
     super.key,
     required this.icone,
     required this.titulo,
     this.cor = Colors.cyan,
     required this.destino,
+    this.hasTestConnection = false,
   });
 
   @override
@@ -19,8 +24,24 @@ class ButtonBoxGrid extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: ElevatedButton(
-        onPressed: () {
-          Navigator.of(context).pushNamed(destino);
+        onPressed: () async {
+          if (!hasTestConnection!) {
+            Navigator.of(context).pushNamed(destino);
+          } else {
+            if (await testController.testConnection()) {
+              Navigator.of(context).pushNamed(destino);
+            } else {
+              Fluttertoast.showToast(
+                msg: "Conexão com o servidor perdida, tente novamente!",
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.BOTTOM,
+                timeInSecForIosWeb: 1,
+                backgroundColor: const Color.fromARGB(255, 211, 26, 26),
+                textColor: Colors.white,
+                fontSize: 16.0,
+              );
+            }
+          }
         },
         style: ElevatedButton.styleFrom(backgroundColor: cor),
         child: Center(
