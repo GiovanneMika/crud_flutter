@@ -15,7 +15,12 @@ class _CostumersPageState extends State<CostumersPage> {
   Padding _success() {
     return Padding(
       padding: const EdgeInsets.only(top: 12),
-      child: ListView.builder(
+      child: ListView.separated(
+        separatorBuilder: (context, index) => const Divider(
+          height: 1,
+          thickness: 1,
+          color: Colors.grey,
+        ),
         itemCount: controller.costumers.length,
         itemBuilder: (context, index) {
           var costumer = controller.costumers[index];

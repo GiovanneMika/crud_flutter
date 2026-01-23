@@ -15,7 +15,12 @@ class _ProductsPageState extends State<ProductsPage> {
   Padding _success() {
     return Padding(
       padding: const EdgeInsets.only(top: 12),
-      child: ListView.builder(
+      child: ListView.separated(
+        separatorBuilder: (context, index) => const Divider(
+          height: 5,
+          thickness: 1,
+          color: Colors.grey,
+        ),
         itemCount: controller.products.length,
         itemBuilder: (context, index) {
           var product = controller.products[index];
@@ -25,7 +30,7 @@ class _ProductsPageState extends State<ProductsPage> {
                   'https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png',
               width: 50,
               height: 50,
-              fit: BoxFit.cover,
+              fit: BoxFit.fill,
               errorBuilder: (context, error, stackTrace) => Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: Icon(Icons.image_not_supported, size: 40),
