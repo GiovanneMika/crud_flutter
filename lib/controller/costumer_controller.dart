@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:crud_flutter/models/costumer_model.dart';
+import 'package:crud_flutter/repositories/cep_repository.dart';
 import 'package:crud_flutter/repositories/costumer_repository.dart';
 import 'package:flutter/widgets.dart';
 
@@ -8,6 +9,7 @@ class CostumersController {
   List<CostumerModel> costumers = [];
   late final CostumerRepository _repository;
   late final state = ValueNotifier<CostumerState>(CostumerState.initial);
+  final _cepRepository = CepRepository();
 
   CostumersController([CostumerRepository? repository]) {
     _repository = repository ?? CostumerRepository();
@@ -36,6 +38,14 @@ class CostumersController {
 
   Future<dynamic> deleteCostumer(String id) async {
     return await _repository.deleteCostumer(id);
+  }
+
+  Future<Address?> findAddress(String cep) async {
+    try {
+      return await _cepRepository.getAdress(cep);
+    } catch (e) {
+      return null;
+    }
   }
 }
 

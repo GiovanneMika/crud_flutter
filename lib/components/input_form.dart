@@ -9,6 +9,9 @@ class InputForm extends StatelessWidget {
   final String? initialValue;
   final String? Function(String?)? validator;
   final List<TextInputFormatter>? inputFormatters;
+  final TextEditingController? controller;
+  final void Function(String?)? onChanged;
+
   const InputForm({
     super.key,
     required this.label,
@@ -18,6 +21,8 @@ class InputForm extends StatelessWidget {
     this.initialValue,
     this.validator,
     this.inputFormatters,
+    this.controller,
+    this.onChanged,
   });
 
   @override
@@ -31,9 +36,11 @@ class InputForm extends StatelessWidget {
           border: OutlineInputBorder(),
         ),
         onSaved: onSaved,
-        initialValue: initialValue,
+        initialValue: controller == null ? initialValue : null,
         validator: validator,
-        inputFormatters: inputFormatters
+        inputFormatters: inputFormatters,
+        controller: controller,
+        onChanged: onChanged,
       ),
     );
   }

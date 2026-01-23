@@ -5,6 +5,7 @@ import 'package:crud_flutter/controller/costumer_controller.dart';
 import 'package:crud_flutter/models/costumer_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class NewClient extends StatefulWidget {
   const NewClient({super.key});
@@ -14,6 +15,13 @@ class NewClient extends StatefulWidget {
 }
 
 class _NewClientState extends State<NewClient> {
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _cepController = TextEditingController();
+  final TextEditingController _addressController = TextEditingController();
+  final TextEditingController _cityController = TextEditingController();
+  final TextEditingController _stateController = TextEditingController();
   final controller = CostumersController();
   final _formKey = GlobalKey<FormState>();
 
@@ -26,6 +34,39 @@ class _NewClientState extends State<NewClient> {
     isActive: true,
     lastPurchase: null,
   );
+
+  bool _isInit = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!_isInit) {
+      final costumer =
+          ModalRoute.of(context)!.settings.arguments as CostumerModel?;
+      if (costumer != null) {
+        _nameController.text = costumer.fullName ?? '';
+        _emailController.text = costumer.email ?? '';
+        _phoneController.text = costumer.phone ?? '';
+        _cepController.text = costumer.address?.zipCode ?? '';
+        _addressController.text = costumer.address?.street ?? '';
+        _cityController.text = costumer.address?.city ?? '';
+        _stateController.text = costumer.address?.state ?? '';
+      }
+      _isInit = true;
+    }
+  }
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _emailController.dispose();
+    _phoneController.dispose();
+    _cepController.dispose();
+    _addressController.dispose();
+    _cityController.dispose();
+    _stateController.dispose();
+    super.dispose();
+  }
 
   void _saveForm() {
     if (_formKey.currentState!.validate()) {
@@ -64,7 +105,7 @@ class _NewClientState extends State<NewClient> {
                       label: "Nome Completo",
                       padding: 12.0,
                       keyboardType: TextInputType.name,
-                      initialValue: costumer?.fullName,
+                      controller: _nameController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Por favor, insira o nome completo';
@@ -86,7 +127,7 @@ class _NewClientState extends State<NewClient> {
                       label: "Email",
                       padding: 12.0,
                       keyboardType: TextInputType.emailAddress,
-                      initialValue: costumer?.email,
+                      controller: _emailController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Por favor, insira o email';
@@ -111,7 +152,7 @@ class _NewClientState extends State<NewClient> {
                       label: "Número de telefone",
                       padding: 12.0,
                       keyboardType: TextInputType.phone,
-                      initialValue: costumer?.phone,
+                      controller: _phoneController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Por favor, insira o número de telefone';
@@ -133,7 +174,7 @@ class _NewClientState extends State<NewClient> {
                       label: "CEP",
                       padding: 12.0,
                       keyboardType: TextInputType.number,
-                      initialValue: costumer?.address?.zipCode,
+                      controller: _cepController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Por favor, insira o CEP';
@@ -148,6 +189,45 @@ class _NewClientState extends State<NewClient> {
                         _newCostumer.address!.zipCode = value;
                         return null;
                       },
+                      onChanged: (value) async {
+                        if (value!.length == 9) {
+                          final endereco =
+                              await controller.findAddress(value) as Address;
+                          endereco.city == null || endereco.city == ''
+                              ? Fluttertoast.showToast(
+                                  msg:
+                                      "CEP não encontrado, por favor verifique e tente novamente!",
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.BOTTOM,
+                                  timeInSecForIosWeb: 1,
+                                  backgroundColor: const Color.fromARGB(
+                                    255,
+                                    211,
+                                    26,
+                                    26,
+                                  ),
+                                  textColor: Colors.white,
+                                  fontSize: 16.0,
+                                )
+                              : Fluttertoast.showToast(
+                                  msg: "CEP encontrado com sucesso!",
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.BOTTOM,
+                                  timeInSecForIosWeb: 1,
+                                  backgroundColor: const Color.fromARGB(
+                                    255,
+                                    26,
+                                    211,
+                                    57,
+                                  ),
+                                  textColor: Colors.white,
+                                  fontSize: 16.0,
+                                );
+                          _addressController.text = endereco.street!;
+                          _cityController.text = endereco.city!;
+                          _stateController.text = endereco.state!;
+                        }
+                      },
                     ),
                   ),
                 ],
@@ -159,7 +239,7 @@ class _NewClientState extends State<NewClient> {
                       label: "Endereço",
                       padding: 12.0,
                       keyboardType: TextInputType.text,
-                      initialValue: costumer?.address?.street,
+                      controller: _addressController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Por favor, insira o endereço';
@@ -181,7 +261,7 @@ class _NewClientState extends State<NewClient> {
                       label: "Cidade",
                       padding: 12.0,
                       keyboardType: TextInputType.text,
-                      initialValue: costumer?.address?.city,
+                      controller: _cityController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Por favor, insira a cidade';
@@ -199,7 +279,7 @@ class _NewClientState extends State<NewClient> {
                       label: "Estado",
                       padding: 12.0,
                       keyboardType: TextInputType.text,
-                      initialValue: costumer?.address?.state,
+                      controller: _stateController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Por favor, insira o estado';
