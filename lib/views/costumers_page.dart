@@ -16,47 +16,69 @@ class _CostumersPageState extends State<CostumersPage> {
     return Padding(
       padding: const EdgeInsets.only(top: 12),
       child: ListView.separated(
-        separatorBuilder: (context, index) => const Divider(
-          height: 1,
-          thickness: 1,
-          color: Colors.grey,
-        ),
+        separatorBuilder: (context, index) =>
+            const Divider(height: 1, thickness: 1, color: Colors.grey),
         itemCount: controller.costumers.length,
         itemBuilder: (context, index) {
           var costumer = controller.costumers[index];
-          return ListTile(
-            title: Text('${costumer.fullName}'),
-            subtitle: Text('${costumer.email}'),
-            trailing: SizedBox(
-              width: 60,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                    icon: Icon(Icons.edit, color: Colors.blue),
-                    padding: EdgeInsets.all(0),
-                    constraints: BoxConstraints(maxHeight: 30, maxWidth: 30),
-                    onPressed: () {
-                      Navigator.of(context)
-                          .pushReplacementNamed(
-                            '/costumers/new',
-                            arguments: costumer,
-                          )
-                          .then((_) => controller.start());
-                    },
-                    splashRadius: 20,
-                  ),
-                  SizedBox(width: 8),
-                  IconButton(
-                    icon: Icon(Icons.delete, color: Colors.red),
-                    padding: EdgeInsets.all(0),
-                    constraints: BoxConstraints(maxHeight: 30, maxWidth: 30),
-                    splashRadius: 20,
-                    onPressed: () {
-                      _modalExclusao(context, costumer, controller);
-                    },
-                  ),
-                ],
+          return Dismissible(
+            key: Key(costumer.id.toString()),
+            direction: DismissDirection.horizontal,
+            background: Container(
+              color: Colors.blue,
+              alignment: Alignment.centerLeft,
+              padding: const EdgeInsets.only(left: 20),
+              child: const Icon(Icons.edit, color: Colors.white),
+            ),
+            secondaryBackground: Container(
+              color: Colors.red,
+              alignment: Alignment.centerRight,
+              padding: const EdgeInsets.only(right: 20),
+              child: const Icon(Icons.delete, color: Colors.white),
+            ),
+            confirmDismiss: (direction) async {
+              if (direction == DismissDirection.startToEnd) {
+                Navigator.of(
+                  context,
+                ).pushReplacementNamed('/costumers/new', arguments: costumer);
+                return false;
+              } else {
+                await _modalExclusao(context, costumer, controller);
+                return false;
+              }
+            },
+            child: ListTile(
+              title: Text('${costumer.fullName}'),
+              subtitle: Text('${costumer.email}'),
+              trailing: SizedBox(
+                width: 60,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(
+                      icon: Icon(Icons.edit, color: Colors.blue),
+                      padding: EdgeInsets.all(0),
+                      constraints: BoxConstraints(maxHeight: 30, maxWidth: 30),
+                      onPressed: () {
+                        Navigator.of(context).pushReplacementNamed(
+                          '/costumers/new',
+                          arguments: costumer,
+                        );
+                      },
+                      splashRadius: 20,
+                    ),
+                    SizedBox(width: 8),
+                    IconButton(
+                      icon: Icon(Icons.delete, color: Colors.red),
+                      padding: EdgeInsets.all(0),
+                      constraints: BoxConstraints(maxHeight: 30, maxWidth: 30),
+                      splashRadius: 20,
+                      onPressed: () async {
+                        await _modalExclusao(context, costumer, controller);
+                      },
+                    ),
+                  ],
+                ),
               ),
             ),
           );

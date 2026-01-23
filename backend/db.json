@@ -13,18 +13,6 @@
       "updatedAt": ""
     },
     {
-      "id": "3",
-      "name": "Noise Cancelling Headphones",
-      "description": "Active noise cancelling with 30h battery life.",
-      "price": 1200.3,
-      "stock": 0,
-      "isAvailable": true,
-      "category": "Audio",
-      "imageUrl": "https://m.media-amazon.com/images/I/51f7KKP25PL._AC_UF894,1000_QL80_.jpg",
-      "tags": [],
-      "updatedAt": ""
-    },
-    {
       "id": "4",
       "name": "Coffee Maker 5000",
       "description": "Automatic espresso machine with milk frother.",
@@ -91,7 +79,7 @@
     },
     {
       "id": "1",
-      "fullName": "João Silva",
+      "fullName": "João Silva 123",
       "email": "joao.silva@email.com",
       "phone": "+55 11 98888-7777",
       "address": {
@@ -106,7 +94,7 @@
     },
     {
       "id": "7774",
-      "fullName": "Giovanni Mika",
+      "fullName": "Giovanni Mika 123",
       "email": "adsfasdfa@gmiail.com",
       "phone": "(32) 3232-3232",
       "address": {

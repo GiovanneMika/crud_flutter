@@ -16,60 +16,82 @@ class _ProductsPageState extends State<ProductsPage> {
     return Padding(
       padding: const EdgeInsets.only(top: 12),
       child: ListView.separated(
-        separatorBuilder: (context, index) => const Divider(
-          height: 5,
-          thickness: 1,
-          color: Colors.grey,
-        ),
+        separatorBuilder: (context, index) =>
+            const Divider(height: 5, thickness: 1, color: Colors.grey),
         itemCount: controller.products.length,
         itemBuilder: (context, index) {
           var product = controller.products[index];
-          return ListTile(
-            leading: Image.network(
-              product.imageUrl ??
-                  'https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png',
-              width: 50,
-              height: 50,
-              fit: BoxFit.fill,
-              errorBuilder: (context, error, stackTrace) => Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: Icon(Icons.image_not_supported, size: 40),
+          return Dismissible(
+            key: Key(product.id.toString()),
+            direction: DismissDirection.horizontal,
+            background: Container(
+              color: Colors.blue,
+              alignment: Alignment.centerLeft,
+              padding: const EdgeInsets.only(left: 20),
+              child: const Icon(Icons.edit, color: Colors.white),
+            ),
+            secondaryBackground: Container(
+              color: Colors.red,
+              alignment: Alignment.centerRight,
+              padding: const EdgeInsets.only(right: 20),
+              child: const Icon(Icons.delete, color: Colors.white),
+            ),
+            confirmDismiss: (direction) async {
+              if (direction == DismissDirection.startToEnd) {
+                Navigator.of(
+                  context,
+                ).pushReplacementNamed('/products/new', arguments: product);
+                return false;
+              } else {
+                _modalExclusao(context, product, controller);
+                return false;
+              }
+            },
+            child: ListTile(
+              leading: Image.network(
+                product.imageUrl ??
+                    'https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png',
+                width: 50,
+                height: 50,
+                fit: BoxFit.fill,
+                errorBuilder: (context, error, stackTrace) => Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Icon(Icons.image_not_supported, size: 40),
+                ),
               ),
-            ),
-            title: Text(
-              '${product.name} - R\$${product.price!.toStringAsFixed(2).replaceAll('.', ',')}',
-            ),
-            subtitle: Text('${product.description}'),
-            trailing: SizedBox(
-              width: 60,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                    icon: Icon(Icons.edit, color: Colors.blue),
-                    padding: EdgeInsets.all(0),
-                    constraints: BoxConstraints(maxHeight: 30, maxWidth: 30),
-                    onPressed: () {
-                      Navigator.of(context)
-                          .pushReplacementNamed(
-                            '/products/new',
-                            arguments: product,
-                          )
-                          .then((_) => controller.start());
-                    },
-                    splashRadius: 20,
-                  ),
-                  SizedBox(width: 8),
-                  IconButton(
-                    icon: Icon(Icons.delete, color: Colors.red),
-                    padding: EdgeInsets.all(0),
-                    constraints: BoxConstraints(maxHeight: 30, maxWidth: 30),
-                    splashRadius: 20,
-                    onPressed: () {
-                      _modalExclusao(context, product, controller);
-                    },
-                  ),
-                ],
+              title: Text(
+                '${product.name} - R\$${product.price!.toStringAsFixed(2).replaceAll('.', ',')}',
+              ),
+              subtitle: Text('${product.description}'),
+              trailing: SizedBox(
+                width: 60,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(
+                      icon: Icon(Icons.edit, color: Colors.blue),
+                      padding: EdgeInsets.all(0),
+                      constraints: BoxConstraints(maxHeight: 30, maxWidth: 30),
+                      onPressed: () {
+                        Navigator.of(context).pushReplacementNamed(
+                          '/products/new',
+                          arguments: product,
+                        );
+                      },
+                      splashRadius: 20,
+                    ),
+                    SizedBox(width: 8),
+                    IconButton(
+                      icon: Icon(Icons.delete, color: Colors.red),
+                      padding: EdgeInsets.all(0),
+                      constraints: BoxConstraints(maxHeight: 30, maxWidth: 30),
+                      splashRadius: 20,
+                      onPressed: () {
+                        _modalExclusao(context, product, controller);
+                      },
+                    ),
+                  ],
+                ),
               ),
             ),
           );
