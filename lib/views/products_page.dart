@@ -1,3 +1,4 @@
+import 'package:brasil_fields/brasil_fields.dart';
 import 'package:crud_flutter/controller/products_controller.dart';
 import 'package:crud_flutter/models/product_model.dart';
 import 'package:flutter/material.dart';
@@ -60,7 +61,7 @@ class _ProductsPageState extends State<ProductsPage> {
                 ),
               ),
               title: Text(
-                '${product.name} - R\$${product.price!.toStringAsFixed(2).replaceAll('.', ',')}',
+                '${product.name} - ${UtilBrasilFields.obterReal(product.price!)}',
               ),
               subtitle: Text('${product.description}'),
               trailing: SizedBox(

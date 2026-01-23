@@ -84,10 +84,14 @@ class _NewProductPageState extends State<NewProductPage> {
                       label: "Preço do Produto",
                       padding: 12.0,
                       keyboardType: TextInputType.number,
-                      initialValue: product?.price.toString(),
+                      initialValue: product?.price
+                          ?.toStringAsFixed(2)
+                          .replaceAll('.', ','),
                       validator: (value) {
-                        final price = double.tryParse(value!.replaceAll(',', '.'));
-                        if (price == null || price <= 0) {
+                        final price = UtilBrasilFields.converterMoedaParaDouble(
+                          value!,
+                        );
+                        if (price == '' || price <= 0) {
                           return "Preço inválido";
                         }
                         return null;
@@ -97,7 +101,9 @@ class _NewProductPageState extends State<NewProductPage> {
                         CentavosInputFormatter(),
                       ],
                       onSaved: (value) {
-                        final price = double.tryParse(value!.replaceAll(',', '.'));
+                        final price = UtilBrasilFields.converterMoedaParaDouble(
+                          value!,
+                        );
                         _newProduct.price = price;
                         return null;
                       },
@@ -206,9 +212,7 @@ class _NewProductPageState extends State<NewProductPage> {
                         label: "Cancelar",
                         cor: Colors.red,
                         onPressed: () {
-                          Navigator.of(
-                            context,
-                          ).pushReplacementNamed('/products');
+                          Navigator.of(context).pop();
                         },
                       ),
                     ),

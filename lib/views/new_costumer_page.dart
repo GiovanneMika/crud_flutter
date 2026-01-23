@@ -154,8 +154,8 @@ class _NewClientState extends State<NewClient> {
                       keyboardType: TextInputType.phone,
                       controller: _phoneController,
                       validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Por favor, insira o número de telefone';
+                        if (value == null || value.isEmpty || value.length < 14) {
+                          return 'Por favor, insira um número de telefone válido';
                         }
                         return null;
                       },
@@ -176,8 +176,8 @@ class _NewClientState extends State<NewClient> {
                       keyboardType: TextInputType.number,
                       controller: _cepController,
                       validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Por favor, insira o CEP';
+                        if (value == null || value.isEmpty || value.length < 9) {
+                          return 'Por favor, insira um CEP válido';
                         }
                         return null;
                       },

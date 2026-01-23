@@ -4,7 +4,7 @@
       "id": "2",
       "name": "Mechanical 23 Keyboard 123 K5",
       "description": "Wireless low-profile mechanical keyboard.",
-      "price": 550.5,
+      "price": 54.54,
       "stock": 8,
       "isAvailable": true,
       "category": "Peripherals",
@@ -40,7 +40,7 @@
       "id": "bd47",
       "name": "dcxczzvx",
       "description": "asdfsadf",
-      "price": 12,
+      "price": 1200.21,
       "stock": 123,
       "isAvailable": true,
       "category": "asfdasdf",
@@ -52,7 +52,7 @@
       "id": "b926",
       "name": "Mathias123",
       "description": "Mathias",
-      "price": 212.88,
+      "price": 50.5,
       "stock": 123,
       "isAvailable": true,
       "category": "Mathias",
@@ -98,10 +98,25 @@
       "email": "adsfasdfa@gmiail.com",
       "phone": "(32) 3232-3232",
       "address": {
-        "street": "asdfasd",
-        "city": "fdasa",
-        "state": "afasdf",
-        "zipCode": "22222-222"
+        "street": "Rua José Gregório de Abreu",
+        "city": "Sete Lagoas",
+        "state": "MG",
+        "zipCode": "35701-121"
+      },
+      "isActive": true,
+      "balance": 0,
+      "lastPurchase": null
+    },
+    {
+      "id": "b7e1",
+      "fullName": "Marcos",
+      "email": "asfiushd@7=g.c",
+      "phone": "(21) 2121-2898",
+      "address": {
+        "street": "Rua Professor Carrel",
+        "city": "Ponta Grossa",
+        "state": "PR",
+        "zipCode": "84045-400"
       },
       "isActive": true,
       "balance": 0,
