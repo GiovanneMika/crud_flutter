@@ -19,11 +19,21 @@ class CostumerRepository {
   }
 
   Future<CostumerModel> createCostumer(CostumerModel costumer) async {
+    costumer.phone = costumer.phone!.trim().replaceAll(RegExp(r'\D'), '');
+    costumer.address!.zipCode = costumer.address!.zipCode!.trim().replaceAll(
+      RegExp(r'\D'),
+      '',
+    );
     final response = await dio.post(url, data: costumer.toJson());
     return CostumerModel.fromJson(response.data);
   }
 
   Future<CostumerModel> updateCostumer(CostumerModel costumer) async {
+    costumer.phone = costumer.phone!.trim().replaceAll(RegExp(r'\D'), '');
+    costumer.address!.zipCode = costumer.address!.zipCode!.trim().replaceAll(
+      RegExp(r'\D'),
+      '',
+    );
     final response = await dio.put(
       '$url/${costumer.id}',
       data: costumer.toJson(),

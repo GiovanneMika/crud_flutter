@@ -46,8 +46,18 @@ class _NewClientState extends State<NewClient> {
       if (costumer != null) {
         _nameController.text = costumer.fullName ?? '';
         _emailController.text = costumer.email ?? '';
-        _phoneController.text = costumer.phone ?? '';
-        _cepController.text = costumer.address?.zipCode ?? '';
+        _phoneController.text = TelefoneInputFormatter()
+            .formatEditUpdate(
+              TextEditingValue.empty,
+              TextEditingValue(text: costumer.phone ?? ''),
+            )
+            .text;
+        _cepController.text = CepInputFormatter()
+            .formatEditUpdate(
+              TextEditingValue.empty,
+              TextEditingValue(text: costumer.address?.zipCode ?? ''),
+            )
+            .text;
         _addressController.text = costumer.address?.street ?? '';
         _cityController.text = costumer.address?.city ?? '';
         _stateController.text = costumer.address?.state ?? '';
@@ -154,7 +164,9 @@ class _NewClientState extends State<NewClient> {
                       keyboardType: TextInputType.phone,
                       controller: _phoneController,
                       validator: (value) {
-                        if (value == null || value.isEmpty || value.length < 14) {
+                        if (value == null ||
+                            value.isEmpty ||
+                            value.length < 14) {
                           return 'Por favor, insira um número de telefone válido';
                         }
                         return null;
@@ -176,7 +188,9 @@ class _NewClientState extends State<NewClient> {
                       keyboardType: TextInputType.number,
                       controller: _cepController,
                       validator: (value) {
-                        if (value == null || value.isEmpty || value.length < 9) {
+                        if (value == null ||
+                            value.isEmpty ||
+                            value.length < 9) {
                           return 'Por favor, insira um CEP válido';
                         }
                         return null;
