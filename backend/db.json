@@ -97,6 +97,21 @@
       "isActive": true,
       "balance": 0,
       "lastPurchase": null
+    },
+    {
+      "id": "23a4",
+      "fullName": "Giovanni ",
+      "email": "giovanne@email.com",
+      "phone": "1345243523",
+      "address": {
+        "street": "Rua Professor Carrel",
+        "city": "Ponta Grossa",
+        "state": "PR",
+        "zipCode": "84045400"
+      },
+      "isActive": true,
+      "balance": 0,
+      "lastPurchase": null
     }
   ]
 }
