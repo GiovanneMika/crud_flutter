@@ -22,6 +22,9 @@ class _NewClientState extends State<NewClient> {
   final TextEditingController _addressController = TextEditingController();
   final TextEditingController _cityController = TextEditingController();
   final TextEditingController _stateController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _profileImageUrlController =
+      TextEditingController();
   final controller = CostumersController();
   final _formKey = GlobalKey<FormState>();
 
@@ -33,6 +36,8 @@ class _NewClientState extends State<NewClient> {
     balance: 0,
     isActive: true,
     lastPurchase: null,
+    password: '',
+    profileImageUrl: '',
   );
 
   bool _isInit = false;
@@ -61,6 +66,8 @@ class _NewClientState extends State<NewClient> {
         _addressController.text = costumer.address?.street ?? '';
         _cityController.text = costumer.address?.city ?? '';
         _stateController.text = costumer.address?.state ?? '';
+        _passwordController.text = costumer.password ?? '';
+        _profileImageUrlController.text = costumer.profileImageUrl ?? '';
       }
       _isInit = true;
     }
@@ -75,6 +82,8 @@ class _NewClientState extends State<NewClient> {
     _addressController.dispose();
     _cityController.dispose();
     _stateController.dispose();
+    _passwordController.dispose();
+    _profileImageUrlController.dispose();
     super.dispose();
   }
 
@@ -149,6 +158,44 @@ class _NewClientState extends State<NewClient> {
                       },
                       onSaved: (value) {
                         _newCostumer.email = value;
+                        return null;
+                      },
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: InputForm(
+                      label: "Senha",
+                      padding: 12.0,
+                      keyboardType: TextInputType.visiblePassword,
+                      controller: _passwordController,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Por favor, insira a senha';
+                        }
+                        return null;
+                      },
+                      onSaved: (value) {
+                        _newCostumer.password = value;
+                        return null;
+                      },
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: InputForm(
+                      label: "URL da Imagem de Perfil",
+                      padding: 12.0,
+                      keyboardType: TextInputType.url,
+                      controller: _profileImageUrlController,
+                      onSaved: (value) {
+                        _newCostumer.profileImageUrl = value;
                         return null;
                       },
                     ),

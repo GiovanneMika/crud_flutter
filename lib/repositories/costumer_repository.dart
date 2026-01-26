@@ -44,4 +44,17 @@ class CostumerRepository {
     final response = await dio.delete('$url/$id');
     return response;
   }
+
+  Future<CostumerModel?> login(String email, String password) async {
+    try {
+      final response = await dio.get('$url?email=$email&password=$password');
+
+      if (response.data is List && (response.data as List).isNotEmpty) {
+        return CostumerModel.fromJson(response.data[0]);
+      }
+      return null;
+    } on Exception catch (e) {
+      return null;
+    }
+  }
 }

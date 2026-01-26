@@ -7,6 +7,8 @@ class CostumerModel {
   bool? isActive;
   double? balance;
   String? lastPurchase;
+  String? password;
+  String? profileImageUrl;
 
   CostumerModel({
     this.id,
@@ -17,6 +19,8 @@ class CostumerModel {
     this.isActive,
     this.balance,
     this.lastPurchase,
+    this.password,
+    this.profileImageUrl,
   });
 
   CostumerModel.fromJson(Map<String, dynamic> json) {
@@ -30,6 +34,8 @@ class CostumerModel {
     isActive = json['isActive'];
     balance = (json['balance'] as num?)?.toDouble();
     lastPurchase = json['lastPurchase'];
+    password = json['password'];
+    profileImageUrl = json['profileImageUrl'];
   }
 
   Map<String, dynamic> toJson() {
@@ -46,6 +52,8 @@ class CostumerModel {
     data['isActive'] = isActive;
     data['balance'] = balance;
     data['lastPurchase'] = lastPurchase;
+    data['password'] = password;
+    data['profileImageUrl'] = profileImageUrl;
     return data;
   }
 }

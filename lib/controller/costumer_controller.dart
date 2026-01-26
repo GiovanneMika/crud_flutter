@@ -40,6 +40,10 @@ class CostumersController {
     return await _repository.deleteCostumer(id);
   }
 
+  Future<CostumerModel?> login(String email, String password) async {
+    return await _repository.login(email, password);
+  }
+
   Future<Address?> findAddress(String cep) async {
     try {
       return await _cepRepository.getAdress(cep);

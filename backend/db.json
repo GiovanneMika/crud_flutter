@@ -51,7 +51,8 @@
       },
       "isActive": true,
       "balance": 0,
-      "lastPurchase": null
+      "lastPurchase": null,
+      "password": "12345"
     },
     {
       "id": "1",
@@ -71,7 +72,7 @@
     {
       "id": "7774",
       "fullName": "Giovanni Mika 123",
-      "email": "adsfasdfa@gmiail.com",
+      "email": "giovanne@gmail.com",
       "phone": "3232323232",
       "address": {
         "street": "Rua Professor Carrel",
@@ -81,7 +82,9 @@
       },
       "isActive": true,
       "balance": 0,
-      "lastPurchase": null
+      "lastPurchase": null,
+      "password": "12345",
+      "profileImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSee2j5jfpIIogQz8Gtys_IMIVYnfWXRcf9uA&s"
     },
     {
       "id": "b7e1",
@@ -101,7 +104,7 @@
     {
       "id": "23a4",
       "fullName": "Giovanni ",
-      "email": "giovanne@email.com",
+      "email": "giovanne123@email.com",
       "phone": "1345243523",
       "address": {
         "street": "Rua Professor Carrel",
@@ -112,6 +115,23 @@
       "isActive": true,
       "balance": 0,
       "lastPurchase": null
+    },
+    {
+      "id": "4404",
+      "fullName": "Giovanne",
+      "email": "giovanne@gmail.com",
+      "phone": "1232131234",
+      "address": {
+        "street": "Rua Eça de Queiroz",
+        "city": "Ponta Grossa",
+        "state": "PR",
+        "zipCode": "84045440"
+      },
+      "isActive": true,
+      "balance": 0,
+      "lastPurchase": null,
+      "password": "12345",
+      "profileImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSee2j5jfpIIogQz8Gtys_IMIVYnfWXRcf9uA&s"
     }
   ]
 }

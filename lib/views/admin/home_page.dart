@@ -50,6 +50,17 @@ class _HomePageState extends State<HomePage> {
                 Navigator.pushNamed(context, '/costumers');
               },
             ),
+            ListTile(
+              title: Text("Logout"),
+              subtitle: Text("Finalizar sessão"),
+              leading: Padding(
+                padding: const EdgeInsets.only(top: 5),
+                child: Icon(Icons.logout, size: 30),
+              ),
+              onTap: () {
+                Navigator.pushReplacementNamed(context, '/');
+              },
+            ),
           ],
         ),
       ),

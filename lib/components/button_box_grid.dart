@@ -9,6 +9,7 @@ class ButtonBoxGrid extends StatelessWidget {
   final String destino;
   final Color? cor;
   final bool? hasTestConnection;
+  final Object? arguments;
 
   ButtonBoxGrid({
     super.key,
@@ -17,6 +18,7 @@ class ButtonBoxGrid extends StatelessWidget {
     this.cor = Colors.cyan,
     required this.destino,
     this.hasTestConnection = false,
+    this.arguments,
   });
 
   @override
@@ -26,10 +28,10 @@ class ButtonBoxGrid extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () async {
           if (!hasTestConnection!) {
-            Navigator.of(context).pushNamed(destino);
+            Navigator.of(context).pushNamed(destino, arguments: arguments);
           } else {
             if (await testController.testConnection()) {
-              Navigator.of(context).pushNamed(destino);
+              Navigator.of(context).pushNamed(destino, arguments: arguments);
             } else {
               Fluttertoast.showToast(
                 msg: "Conexão com o servidor perdida, tente novamente!",
