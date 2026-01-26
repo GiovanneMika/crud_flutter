@@ -237,6 +237,12 @@ class _NewClientState extends State<NewClient> {
                                   textColor: Colors.white,
                                   fontSize: 16.0,
                                 );
+                          if (endereco.city == null || endereco.city == '') {
+                            _addressController.text = '';
+                            _cityController.text = '';
+                            _stateController.text = '';
+                            return;
+                          }
                           _addressController.text = endereco.street!;
                           _cityController.text = endereco.city!;
                           _stateController.text = endereco.state!;

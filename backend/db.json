@@ -35,30 +35,6 @@
       "imageUrl": "https://cdn.awsli.com.br/2500x2500/753/753530/produto/364648249/1000295555-zonpi30u77.jpg",
       "tags": [],
       "updatedAt": ""
-    },
-    {
-      "id": "bd47",
-      "name": "dcxczzvx",
-      "description": "asdfsadf",
-      "price": 1200.21,
-      "stock": 123,
-      "isAvailable": true,
-      "category": "asfdasdf",
-      "imageUrl": "https://avatars.githubusercontent.com/u/141854775?v=4",
-      "tags": [],
-      "updatedAt": ""
-    },
-    {
-      "id": "b926",
-      "name": "Mathias123",
-      "description": "Mathias",
-      "price": 50.5,
-      "stock": 123,
-      "isAvailable": true,
-      "category": "Mathias",
-      "imageUrl": "https://avatars.githubusercontent.com/u/93598422?v=4",
-      "tags": [],
-      "updatedAt": ""
     }
   ],
   "costumers": [
@@ -66,12 +42,12 @@
       "id": "2",
       "fullName": "Maria Oliveira",
       "email": "maria.oli@outlook.com",
-      "phone": "+55 21 97777-6666",
+      "phone": "21977776666",
       "address": {
         "street": "Avenida Atlântica, 456",
         "city": "Rio de Janeiro",
         "state": "RJ",
-        "zipCode": "22010-000"
+        "zipCode": "22010000"
       },
       "isActive": true,
       "balance": 0,
@@ -81,12 +57,12 @@
       "id": "1",
       "fullName": "João Silva 123",
       "email": "joao.silva@email.com",
-      "phone": "+55 11 98888-7777",
+      "phone": "11988887777",
       "address": {
         "street": "Rua das Flores, 123",
         "city": "São Paulo",
         "state": "SP",
-        "zipCode": "01234-567"
+        "zipCode": "01234567"
       },
       "isActive": true,
       "balance": 0,
@@ -96,12 +72,12 @@
       "id": "7774",
       "fullName": "Giovanni Mika 123",
       "email": "adsfasdfa@gmiail.com",
-      "phone": "(32) 3232-3232",
+      "phone": "3232323232",
       "address": {
-        "street": "Rua José Gregório de Abreu",
-        "city": "Sete Lagoas",
-        "state": "MG",
-        "zipCode": "35701-121"
+        "street": "Rua Professor Carrel",
+        "city": "Ponta Grossa",
+        "state": "PR",
+        "zipCode": "84045400"
       },
       "isActive": true,
       "balance": 0,
@@ -116,7 +92,7 @@
         "street": "Rua Professor Carrel",
         "city": "Ponta Grossa",
         "state": "PR",
-        "zipCode": "84045-400"
+        "zipCode": "84045400"
       },
       "isActive": true,
       "balance": 0,
