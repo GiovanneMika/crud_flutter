@@ -45,6 +45,19 @@ class CostumerRepository {
     return response;
   }
 
+  Future<CostumerModel?> getCostumerByEmail(String email) async {
+    try {
+      final response = await dio.get('$url?email=$email');
+
+      if (response.data is List && (response.data as List).isNotEmpty) {
+        return CostumerModel.fromJson(response.data[0]);
+      }
+      return null;
+    } on Exception catch (e) {
+      return null;
+    }
+  }
+
   Future<CostumerModel?> login(String email, String password) async {
     try {
       final response = await dio.get('$url?email=$email&password=$password');

@@ -87,17 +87,24 @@ class _NewClientState extends State<NewClient> {
     super.dispose();
   }
 
-  void _saveForm() {
+  void _saveForm() async {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-      if (_newCostumer.id == null) {
-        controller.createCostumer(_newCostumer).then((value) {
-          if (mounted) Navigator.of(context).pushReplacementNamed('/costumers');
-        });
-      } else {
-        controller.updateCostumer(_newCostumer).then((value) {
-          if (mounted) Navigator.of(context).pushReplacementNamed('/costumers');
-        });
+      try {
+        if (_newCostumer.id == null) {
+          await controller.createCostumer(_newCostumer);
+        } else {
+          await controller.updateCostumer(_newCostumer);
+        }
+        if (mounted) Navigator.of(context).pushReplacementNamed('/costumers');
+      } catch (e) {
+        Fluttertoast.showToast(
+          msg: "Erro ao salvar cliente: $e",
+          toastLength: Toast.LENGTH_LONG,
+          gravity: ToastGravity.BOTTOM,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+        );
       }
     }
   }

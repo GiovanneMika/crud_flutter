@@ -29,6 +29,12 @@ class CostumersController {
   }
 
   Future<CostumerModel> createCostumer(CostumerModel costumer) async {
+    final existingCostumer = await _repository.getCostumerByEmail(
+      costumer.email!,
+    );
+    if (existingCostumer != null) {
+      throw Exception('Costumer with this email already exists');
+    }
     return await _repository.createCostumer(costumer);
   }
 
